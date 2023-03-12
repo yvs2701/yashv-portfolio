@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.main, .trackrecord, .career {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 200px 30px 100px 30px;
+    width: 75vw;
+}
+
+.main > img {
+    width: 400px;
+    border-radius: 50%;
+    box-shadow: 1px 0 0.5px 0.5px rgb(var(--black-rgb));
+    filter: sepia(10%) grayscale(70%);
+}
+
+.main > .description {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.welcome, .heading {
+    margin: 10px 0 10px 0;
+    font-size: 80px;
+    font-weight: 400;
+}
+
+.main > .description > .aboutme {
+    font-size: 25px;
+    line-height: 39px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+
+.heading {
+    font-size: 44px;
+}
+
+.trackrecord {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.trackrecord > .career {
+    margin: 0;
+    width: unset;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.career > .history {
+    padding: 20px 5px;
+    text-align: justify;
+}
+
+.career > .skills li {
+    list-style: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 1px solid rgb(var(--faint-grey-rgb));
+    border-radius: 8px;
+    transition: all 0.2s ease-out;
+}
+.career > .skills li:hover {
+    border: 1px solid rgb(var(--black-rgb));
+}
+
+.career > .skills {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: 100px;
+}

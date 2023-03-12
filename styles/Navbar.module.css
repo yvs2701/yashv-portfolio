@@ -5,7 +5,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: none;
+    
+    background-color: rgba(var(--white-rgb), 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 99;
+
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 
 .navbar > .namebrand {
@@ -13,7 +20,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    transition: all 0.1s linear;
     transition: transform 0.2s ease-out;
 }
 
@@ -58,5 +64,5 @@
     padding: 12px 25px;
     border-radius: 8px;
     color: #fff;
-    background-color: #1a1b1f;
+    background-color: rgb(var(--black-rgb));
 }

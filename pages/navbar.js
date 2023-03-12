@@ -9,7 +9,9 @@ export default function Navbar() {
   return (
     <>
       <nav className={styles.navbar + ' ' + poppins.className}>
-        <div className={styles.namebrand + ' ' + poppins.className}
+        <a
+          className={styles.namebrand + ' ' + poppins.className}
+          href="/"
         >
           <Image
             src={namelogo}
@@ -18,7 +20,7 @@ export default function Navbar() {
             width={58}
           />
           <span className={styles.name + ' ' + poppins.className}>Yashvardhan Singh</span>
-        </div>
+        </a>
         <div className={styles.navlinks}>
           <a href="/" className={styles.navlink + ' ' + poppins.className}>About</a>
           <a href="#contact" className={styles.navlink + ' ' + poppins.className}>Contact</a>
