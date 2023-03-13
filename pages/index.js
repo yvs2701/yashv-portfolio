@@ -17,7 +17,10 @@ export default function Home() {
         <title>Yashvardhan Singh</title>
         <meta name="description" content="Portoflio for Yashvardhan Singh" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <Navbar />
@@ -43,11 +46,11 @@ export default function Home() {
       <section className={styles.container}>
         <div className={styles.trackrecord + ' ' + poppins.className}>
           <h2 className={styles.heading}> Career record </h2>
-          
+
           <div className={styles.career}>
             <p className={styles.history}>
               Always up for a challenge, I&nbsp;have juggled a lot of programming languages and exprerienced a wide variety of domains ranging from ML
-              to Web and App development. I&nbsp;have worked for Insights-club @VIT, and developed a Blogsite cum homepage along with managing a team of four.
+              to Web and App development. I&nbsp;have worked for Insights-club @VIT, and developed a Blogsite cum Homepage along with managing a team of four.
               <br />
               <br />
               I&nbsp;have also been a part time trainee at Kavya Softech pvt. ltd. where I worked as a MERN stack developer, under the supervision of a mentor and completed
@@ -55,7 +58,7 @@ export default function Home() {
             </p>
             <ul className={styles.skills}>{skills.map((skill, index) => <li key={index}> {skill} </li>)} </ul>
           </div>
-        
+
         </div>
       </section>
     </>
