@@ -4,6 +4,8 @@ import styles from '@/styles/Home.module.css'
 import { Poppins } from 'next/font/google'
 import { Crimson_Pro } from 'next/font/google'
 import Navbar from './navbar'
+import Contact from './contact'
+import Footer from './footer'
 import userimg from '../public/professional.png'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'] })
@@ -61,6 +63,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      <Contact />
+      <Footer />
     </>
   )
 }
