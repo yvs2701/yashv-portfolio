@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '@/styles/Footer.module.css'
 import namelogo from '../public/YVicon.png'
 import { Poppins } from 'next/font/google'
@@ -11,7 +12,7 @@ export default function Footer() {
       <section className={styles.container}>
         <div className={styles.footer}>
           <div className="namebrand">
-            <a
+            <Link
               className={styles.logo + ' ' + poppins.className}
               href="/"
             >
@@ -21,13 +22,13 @@ export default function Footer() {
                 height={30}
                 width={58}
               />
-            </a>
+            </Link>
           </div>
 
           <div className="links">
-            <a href="https://www.linkedin.com/in/yashv27/" className={styles.link + ' ' + poppins.className}>LinkedIn</a>
-            <a href="/" className={styles.link + ' ' + poppins.className}>About</a>
-            <a href="/projects" className={styles.link + ' ' + poppins.className}>Projects</a>
+            <Link href="https://www.linkedin.com/in/yashv27/" className={styles.link + ' ' + poppins.className}>LinkedIn</Link>
+            <Link href="/" className={styles.link + ' ' + poppins.className}>About</Link>
+            <Link href="/projects" className={styles.link + ' ' + poppins.className}>Projects</Link>
           </div>
         </div>
         <div className={styles.copyright + ' ' + poppins.className}>

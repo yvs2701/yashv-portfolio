@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '@/styles/Navbar.module.css'
 import namelogo from '../public/YVicon.png'
 import { Poppins } from 'next/font/google'
@@ -9,7 +10,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={styles.navbar + ' ' + poppins.className}>
-        <a
+        <Link
           className={styles.namebrand + ' ' + poppins.className}
           href="/"
         >
@@ -20,11 +21,11 @@ export default function Navbar() {
             width={58}
           />
           <span className={styles.name + ' ' + poppins.className}>Yashvardhan Singh</span>
-        </a>
+        </Link>
         <div className={styles.navlinks}>
-          <a href="/" className={styles.navlink + ' ' + poppins.className}>About</a>
-          <a href="#contact" className={styles.navlink + ' ' + poppins.className}>Contact</a>
-          <a href="/projects" className={styles.navlink + ' ' + poppins.className}>Projects</a>
+          <Link href="/" className={styles.navlink + ' ' + poppins.className}>About</Link>
+          <Link href="#contact" className={styles.navlink + ' ' + poppins.className} scroll={false}>Contact</Link>
+          <Link href="/projects" className={styles.navlink + ' ' + poppins.className}>Projects</Link>
         </div>
       </nav>
     </>

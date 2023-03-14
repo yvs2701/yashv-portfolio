@@ -6,7 +6,7 @@ const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['
 export default function Contact() {
   return (
     <>
-      <section className={styles.container}>
+      <section className={styles.container} id="contact">
         <div className={styles.contactme + ' ' + poppins.className}>
           <h3 className={styles.heading + ' ' + poppins.className}>
             Want&nbsp;to get&nbsp;in touch?

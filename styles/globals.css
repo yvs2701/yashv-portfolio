@@ -25,6 +25,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--white-rgb));
