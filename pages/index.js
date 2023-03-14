@@ -7,6 +7,7 @@ import Navbar from './navbar'
 import Contact from './contact'
 import Footer from './footer'
 import userimg from '../public/professional.png'
+import Floating from './floatinglinks'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'] })
 const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'] })
@@ -65,6 +66,7 @@ export default function Home() {
       </section>
 
       <Contact />
+      <Floating />
       <Footer />
     </>
   )

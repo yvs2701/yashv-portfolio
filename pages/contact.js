@@ -3,6 +3,11 @@ import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['latin'] })
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  //@TODO: post form data
+}
+
 export default function Contact() {
   return (
     <>
@@ -25,7 +30,7 @@ export default function Contact() {
             <div className={styles.textwrapper}>
               <label className={styles.label + ' ' + poppins.className} htmlFor="Message">Message</label>
               <textarea className={styles.textarea + ' ' + poppins.className} name="Message" placeholder='Enter your message' id="Message"></textarea>
-              <input className={styles.submit + ' ' + poppins.className} type="submit" value="Submit" data-wait="Please wait..." />
+              <input className={styles.submit + ' ' + poppins.className} type="submit" value="Submit" data-wait="Please wait..." onClick={handleSubmit} />
             </div>
           </form>
         </div>

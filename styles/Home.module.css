@@ -20,7 +20,7 @@
     width: 400px;
     border-radius: 50%;
     box-shadow: 1px 0 0.5px 0.5px rgb(var(--black-rgb));
-    filter: sepia(10%) grayscale(70%);
+    filter: /* sepia(10%) */ grayscale(80%);
 }
 
 .main > .description {

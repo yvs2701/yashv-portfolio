@@ -116,4 +116,10 @@
     color: #fff;
     font-weight: 500;
     background-color: rgb(var(--black-rgb));
+    transition: transform 0.2s ease-out;
+}
+
+.submit:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
 }

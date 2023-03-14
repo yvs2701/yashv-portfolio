@@ -27,6 +27,7 @@ export default function Footer() {
 
           <div className="links">
             <Link href="https://www.linkedin.com/in/yashv27/" className={styles.link + ' ' + poppins.className}>LinkedIn</Link>
+            <Link href="https://github.com/yvs2701" className={styles.link + ' ' + poppins.className}>Github</Link>
             <Link href="/" className={styles.link + ' ' + poppins.className}>About</Link>
             <Link href="/projects" className={styles.link + ' ' + poppins.className}>Projects</Link>
           </div>

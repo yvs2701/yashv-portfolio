@@ -18,8 +18,7 @@
 }
 
 .logo > img {
-    transition: all 0.2s ease-out;
-
+    transition: transform 0.2s ease-out;
 }
 
 .logo > img:hover {
