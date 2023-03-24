@@ -33,6 +33,7 @@ export default function Home() {
           <Image
             src={userimg}
             width={400}
+            alt="Yashvardan Singh"
           />
 
           <div className={styles.description}>
