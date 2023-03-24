@@ -59,7 +59,9 @@ export default function Home() {
               I&nbsp;have also been a part time trainee at Kavya Softech pvt. ltd. where I worked as a MERN stack developer, under the supervision of a mentor and completed
               the alloted industry work.
             </p>
+
             <ul className={styles.skills}>{skills.map((skill, index) => <li key={index}> {skill} </li>)} </ul>
+
           </div>
 
         </div>

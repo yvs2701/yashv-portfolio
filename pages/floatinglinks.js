@@ -3,10 +3,38 @@ import Link from 'next/link'
 import styles from '@/styles/Floating.module.css'
 import github from '../public/github-iconmonstr.png'
 import linkedin from '../public/linkedin-iconsdb.png'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function Floating() {
+
+  const [display, setDisplay] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setDisplay(true);
+    } else {
+      setDisplay(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    // only render this component if width is above 768px
+    const width = "768"; // css width breakpoint
+    const media = window.matchMedia(`(min-width: ${width}px)`);
+    media.addEventListener("change", updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setDisplay(true);
+    }
+
+    return () => media.removeEventListener("change", updateTarget);
+  }, [])
+
+
   return (
-    <>
+    <>{
+      display &&
       <span className={styles.floatinglinks}>
         <Link className={styles.floatinglink} href='https://github.com/yvs2701'>
           <Image
@@ -23,6 +51,6 @@ export default function Floating() {
           />
         </Link>
       </span>
-    </>
+    }</>
   )
 }
