@@ -29,8 +29,7 @@ export default function Navbar() {
             <span className={styles.name + ' ' + poppins.className}>Yashvardhan Singh</span>
           </Link>
 
-          <Link
-            href="javascript:void(0);"
+          <button
             className={styles.burger}
             onClick={() => {
               setClosedMenu(prevState => !prevState);
@@ -42,10 +41,14 @@ export default function Navbar() {
               height={44}
               width={44}
             />
-          </Link>
+          </button>
         </div>
 
-        <ul className={styles.navlinks + ' ' + (closedMenu ? styles.closed : '')}>
+        <ul className={styles.navlinks + ' ' + (closedMenu ? styles.closed : '')}
+          onClick={() => {
+            setClosedMenu(true)
+          }}
+        >
           <li className={styles.navlink + ' ' + poppins.className}><Link href="/">About</Link></li>
           <li className={styles.navlink + ' ' + poppins.className}><Link href="#contact" scroll={false}>Contact</Link></li>
           <li className={styles.navlink + ' ' + poppins.className}><Link href="/projects">Projects</Link></li>

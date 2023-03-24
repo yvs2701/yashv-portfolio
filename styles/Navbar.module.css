@@ -17,6 +17,11 @@
 
 .burger {
     display: none;
+    background: none;
+    border: none;
+}
+.burger:hover {
+    cursor: pointer;
 }
 
 .navheader {

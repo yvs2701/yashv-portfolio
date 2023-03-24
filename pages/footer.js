@@ -11,7 +11,7 @@ export default function Footer() {
     <>
       <section className={styles.container}>
         <div className={styles.footer}>
-          <div className="namebrand">
+          <div className={styles.namebrand}>
             <Link
               className={styles.logo + ' ' + poppins.className}
               href="/"
@@ -25,7 +25,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="links">
+          <div className={styles.links}>
             <Link href="https://www.linkedin.com/in/yashv27/" className={styles.link + ' ' + poppins.className}>LinkedIn</Link>
             <Link href="https://github.com/yvs2701" className={styles.link + ' ' + poppins.className}>Github</Link>
             <Link href="/" className={styles.link + ' ' + poppins.className}>About</Link>

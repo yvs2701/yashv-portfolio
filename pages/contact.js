@@ -16,7 +16,8 @@ export default function Contact() {
           <h3 className={styles.heading + ' ' + poppins.className}>
             Want&nbsp;to get&nbsp;in touch?
           </h3>
-          <form className={styles.form}>
+
+          <form className={styles.form} method='post' /* action='' */>
             <div className={styles.userdetails}>
               <div className={styles.details}>
                 <label className={styles.label + ' ' + poppins.className} htmlFor="Name">Name</label>
@@ -24,7 +25,14 @@ export default function Contact() {
               </div>
               <div className={styles.details}>
                 <label className={styles.label + ' ' + poppins.className} htmlFor="Email">Email</label>
-                <input className={styles.input + ' ' + poppins.className} type="email" name="Email" data-name="Email" placeholder="Enter your email" id="Email" required />
+                <input
+                  className={styles.input + ' ' + poppins.className}
+                  id="Email"
+                  type="email" name="Email" data-name="Email" placeholder="Enter your email"
+                  // pattern={/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                  // title="Invalid email address!"
+                  required
+                />
               </div>
             </div>
             <div className={styles.textwrapper}>

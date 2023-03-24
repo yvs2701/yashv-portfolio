@@ -125,7 +125,7 @@
     }
 }
 
-@media only screen and (max-width: 1025px){
+@media only screen and (max-width: 1024px){
     .main, .trackrecord {
         width: 100%;
         margin: 0;
