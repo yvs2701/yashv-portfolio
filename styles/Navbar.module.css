@@ -5,9 +5,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    
+
     background-color: rgba(var(--white-rgb), 0.5);
-    backdrop-filter: blur(1px);
+    backdrop-filter: saturate(150%) blur(3px);
     z-index: 99;
 
     position: fixed;
@@ -15,7 +15,18 @@
     width: 100vw;
 }
 
-.navbar > .namebrand {
+.burger {
+    display: none;
+}
+
+.navheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navheader>.namebrand {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,49 +34,103 @@
     transition: transform 0.2s ease-out;
 }
 
-.navbar > .namebrand > .name {
+.navheader>.namebrand>.name {
     height: 100%;
     font-size: 16px;
     font-weight: 500;
-    
+
     visibility: hidden;
     padding: 0 0 0 10px;
     transform: translateX(-25px);
 }
 
-.navbar > .namebrand:hover {
+.navheader>.namebrand:hover {
     transform: skewX(-10deg);
 }
-.navbar > .namebrand:hover > .name {
+
+.navheader>.namebrand:hover>.name {
     transform: translateX(0) skewX(-10deg);
     visibility: visible;
     transition: transform 0.2s ease-out;
 }
 
 
-.navbar > .navlinks {
+.navbar>.navlinks {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.navbar > .navlinks > .navlink {
-    height: 100%;
+.navbar>.navlinks>.navlink {
+    list-style: none;
     font-size: 16px;
     font-weight: 500;
-    
     margin-right: 30px;
     padding: 10px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.navbar > .navlinks > .navlink:hover {
+
+.navlinks>.navlink>a {
+    width: 100%;
+    text-align: center;
+}
+
+.navlinks>.navlink>a:hover {
     text-decoration: underline;
 }
 
-.navbar > .navlinks > .navlink:last-child {
-    margin: 0;
-    padding: 12px 25px;
+.navlinks>.navlink:last-child>a {
+    margin-right: 0;
+    padding: 10px 20px;
     border-radius: var(--radius);
     color: #fff;
     background-color: rgb(var(--black-rgb));
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        display: block;
+        padding: 20px 20px;
+    }
+
+    .burger {
+        display: block;
+        width: 44px;
+        height: 44px;
+    }
+
+    .burger>img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .navheader {
+        width: 100%;
+    }
+
+    .navheader>.namebrand>.name {
+        display: none;
+    }
+
+    .navbar>.navlinks {
+        display: block;
+        overflow: hidden;
+        max-height: 200px;
+        /* height greater than what height can become */
+        transition: all 0.5s ease-out;
+    }
+
+    .navbar>.navlinks.closed {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .navbar>.navlinks>.navlink {
+        margin: 0;
+    }
 }
