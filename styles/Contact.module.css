@@ -166,7 +166,8 @@
     }
 
     .contactme {
-        padding: 5vw;
+        padding: 0;
+        border: none;
     }
 
     .userdetails {
