@@ -42,7 +42,7 @@
 
 .link {
     margin: 0 20px;
-    color: rgb(var(--dark-grey-rgb));
+    color: rgb(var(--grey-rgb));
 }
 
 .link:hover {
@@ -52,7 +52,7 @@
 .copyright {
     width: 100%;
     text-align: center;
-    color: rgb(var(--dark-grey-rgb));
+    color: rgb(var(--grey-rgb));
 }
 
 @media only screen and (max-width: 1024px) {

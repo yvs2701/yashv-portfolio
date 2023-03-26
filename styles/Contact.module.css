@@ -61,7 +61,7 @@
 
 .label {
     display: block;
-    color: rgb(var(--dark-grey-rgb));
+    color: rgb(var(--grey-rgb));
     font-size: 12px;
     line-height: 20px;
     font-weight: 500;

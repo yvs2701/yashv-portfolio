@@ -7,8 +7,9 @@
   --black-rgb: 26, 27, 31;
   --white-rgb: 238, 239, 241;
   --off-white-rgb: 246, 247, 248;
-  --dark-grey-rgb: 143, 146, 158;
+  --grey-rgb: 143, 146, 158;
   --faint-grey-rgb: 206, 209, 223;
+  --dark-grey-rgb: 98, 100, 109;
   --radius: 8px;
   --radius-large: 12px;
 }
