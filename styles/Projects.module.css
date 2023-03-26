@@ -14,7 +14,7 @@
     left: 5vw;
     fill: rgb(var(--faint-grey-rgb));
     z-index: -1;
-    animation: move 60s ease-in-out infinite;
+    animation: move 48s ease-in-out infinite;
 }
 .blob>svg {
     height: 100%;
