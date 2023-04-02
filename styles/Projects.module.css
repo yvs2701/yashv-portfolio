@@ -16,6 +16,7 @@
     z-index: -1;
     animation: move 48s ease-in-out infinite;
 }
+
 .blob>svg {
     height: 100%;
     width: 100%;
@@ -58,7 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    
+
     padding: 0 10vw;
     background: none;
 }
@@ -68,7 +69,7 @@
     font-size: 80px;
     line-height: 90px;
     color: rgb(var(--black-rgb));
-    
+
     width: 90%;
     margin-bottom: 50px;
 }
@@ -78,7 +79,7 @@
     font-size: 26px;
     line-height: 46px;
     color: rgb(var(--dark-grey-rgb));
-    
+
     width: 75%;
     margin-bottom: 40px;
 }
@@ -88,12 +89,13 @@
     margin-top: 0;
     padding: 20px 35px;
     scroll-behavior: smooth;
-    
+
     text-decoration: none;
+    font-weight: 500;
     color: rgb(var(--white-rgb));
     font-size: 20px;
     line-height: 20px;
-    
+
     background: rgb(var(--black-rgb));
     border-radius: var(--radius);
     outline-color: transparent;
@@ -107,10 +109,84 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    align-items: center;
     padding: 0 5vw;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    grid-gap: 50px;
+    /* align-items: center; */
+}
+
+.card {
+    position: relative; /* for next/image fill attribute */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    overflow: hidden;
+    min-height: 500px;
+    border-radius: var(--radius-large);
+    background-image: linear-gradient(180deg, transparent 20%, rgba(var(--grey-rgb), 1));
+}
+
+.card img {
+    position: absolute; /* next/image fill attribute applies position:absolute by default  */
+    z-index: -1;
+    object-fit: cover; /* next/image fill attribute stretches the image to fit in the parent element, object-fit cover crops the image and maintains aspect ratio */
+    object-position: center; /* does the same job as inset: 0 aplied by next/image fill attribute */
+    transition: transform 2.5s ease-in-out;
+}
+
+.card:hover img {
+    transition: transform 5s ease-out;
+    transform: scale(1.1);
+}
+
+.card .cardcontent {
+    padding: 20px;
+}
+
+.card .cardhead {
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.cardtext .cardbody {
+    margin-bottom: 10px;
+}
+
+.cardtext .cardbody,
+.cardtext .cardlink {
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+}
+
+.cardtext .cardlink {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    background-color: rgb(var(--black-rgb));
+    transition: transform 0.2s ease-out;
+}
+
+.cardtext .cardlink:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
 }
 
 @media only screen and (max-width: 1300px) {
@@ -120,23 +196,26 @@
         width: 100%;
     }
 }
+
 @media only screen and (max-width: 1100px) {
     .hero {
         padding: 0 8vw;
     }
-    
+
     .subtitle {
         width: 100%;
-    }    
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .container {
         margin-top: 20px;
     }
+
     .hero {
         padding: 0 5vw;
     }
+
     .blob {
         display: none;
     }
