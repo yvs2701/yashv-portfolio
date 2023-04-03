@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/Floating.module.css'
-import github from '../public/github-iconmonstr.png'
-import linkedin from '../public/linkedin-iconsdb.png'
+import github from '../public/icons/github-iconmonstr.png'
+import linkedin from '../public/icons/linkedin-iconsdb.png'
 import { useState, useEffect, useCallback } from 'react'
 
 export default function Floating() {

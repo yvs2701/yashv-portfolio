@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import styles from '@/styles/Navbar.module.css'
 import namelogo from '../public/YVicon.png'
-import menulogo from '../public/menuIcon.png'
+import menulogo from '../public/icons/menuIcon.png'
 import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'] })

@@ -133,7 +133,7 @@
     overflow: hidden;
     min-height: 500px;
     border-radius: var(--radius-large);
-    background-image: linear-gradient(180deg, transparent 20%, rgba(var(--grey-rgb), 1));
+    background-image: linear-gradient(180deg, transparent, rgba(var(--grey-rgb), 1));
 }
 
 .card img {
@@ -150,7 +150,13 @@
 }
 
 .card .cardcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 20px;
+    width: 100%;
+    min-height: 200px;
 }
 
 .card .cardhead {
@@ -161,9 +167,12 @@
     margin-bottom: 5px;
     text-shadow: 0 1px 2px rgba(var(--grey-rgb), 1);
 }
-
-.cardtext .cardbody {
-    margin-bottom: 10px;
+.card .cardtext {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .cardtext .cardbody,
@@ -179,6 +188,7 @@
     font-size: 16px;
     font-weight: 500;
     padding: 10px 20px;
+    margin-top: 10px;
     border-radius: var(--radius);
     background-color: rgb(var(--black-rgb));
     transition: transform 0.2s ease-out;

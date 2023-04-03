@@ -7,52 +7,84 @@ import Navbar from './navbar'
 import Contact from './contact'
 import Footer from './footer'
 import Floating from './floatinglinks'
+import insights from '../public/projects/insights.jpg'
+import aanchal from '../public/projects/aanchal.png'
+import funedu from '../public/projects/funedu.jpg'
+import covinet from '../public/projects/covinet.jpg'
+import covihelp from '../public/projects/covihelp.png'
+import reacttodos from '../public/projects/reacttodos.png'
+import weather from '../public/projects/weather.png'
+import github from '../public/projects/github.jpg'
 
 const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'] })
 
 const prjs = [
   {
-    photo: 'https://images.unsplash.com/photo-1634084462412-b54873c0a56d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1460&q=80',
-    link: 'https://images.unsplash.com/photo-1634084462412-b54873c0a56d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1460&q=80',
-    title: 'My awesome Project - a website',
-    description: 'Two liner description. Two liner description. Two liner description.'
+    photo: insights,
+    link: 'https://github.com/yvs2701/InsightsClubWebsite',
+    title: 'Insights club - home page',
+    description: 'Blogsite and homepage for insights club comprising video feeds and event updates.'
   },
   {
-    photo: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80',
-    link: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80',
-    title: 'My awesome Project - a website',
-    description: 'Two liner description. Two liner description. Two liner description.'
+    photo: covihelp,
+    link: 'https://github.com/yvs2701/CoviHelp',
+    title: 'CoviHelp - browser extension',
+    description: 'Find your preferred vaccine slots nearby. Alerts you when slots become available.'
   },
   {
-    photo: 'https://images.unsplash.com/photo-1634084462412-b54873c0a56d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1460&q=80',
-    link: 'https://images.unsplash.com/photo-1634084462412-b54873c0a56d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1460&q=80',
-    title: 'My awesome Project - a website',
-    description: 'Two liner description. Two liner description. Two liner description.'
+    photo: funedu,
+    link: 'https://github.com/yvs2701/fun-edu',
+    title: 'FunEdu - online Ed. repository',
+    description: 'Learning materials curated for every age group.'
   },
   {
-    photo: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80',
-    link: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80',
-    title: 'My awesome Project - a website',
-    description: 'Two liner description. Two liner description. Two liner description.'
+    photo: reacttodos,
+    link: 'https://yvs2701.github.io/React-Todos-List/',
+    title: 'Todos list - react app',
+    description: 'Manage your daily goals and todos using this browser synced web app.'
+  },
+  {
+    photo: covinet,
+    link: 'https://github.com/yvs2701/Covinet',
+    title: 'Covinet - corona tracker',
+    description: 'Social awareness for Covid pandemic + tracker for virus spread.'
+  },
+  {
+    photo: aanchal,
+    link: 'https://github.com/yvs2701/Anchaal-app',
+    title: 'Aanchal app - for women',
+    description: 'The app alerts nearby people, and saved contacts during the time of an emergency.'
+  },
+  {
+    photo: weather,
+    link: 'https://yvs2701.github.io/mlh-lhd-submissions/Weather-app/',
+    title: 'Simple weather app',
+    description: 'Fetches weather data from OpenWeatherMap api.'
+  },
+  {
+    photo: github,
+    link: 'https://github.com/yvs2701?tab=repositories',
+    title: 'More on GitHub',
+    description: 'View more repositories and codes on GitHub'
   },
 ]
 
 function PrjCard({ photo, title, description, link }) {
   return (
     <>
-        <div className={styles.card}>
-          <Image src={photo} fill />
-          <div className={styles.cardcontent}>
+      <div className={styles.card}>
+        <Image src={photo} alt={`cover image for project ${title}`} fill />
+        <div className={styles.cardcontent}>
 
-            <h3 className={styles.cardhead + ' ' + poppins.className}>{title}</h3>
+          <h3 className={styles.cardhead + ' ' + poppins.className}>{title}</h3>
 
-            <div className={styles.cardtext}>
-              {description && <p className={styles.cardbody + ' ' + poppins.className}>{description}</p>}
-              {link && <Link href={link} className={styles.cardlink + ' ' + poppins.className}>Visit</Link>}
-            </div>
-
+          <div className={styles.cardtext}>
+            {description && <p className={styles.cardbody + ' ' + poppins.className}>{description}</p>}
+            {link && <Link href={link} className={styles.cardlink + ' ' + poppins.className} target='_blank' rel='noopener noreferrer'>Visit</Link>}
           </div>
+
         </div>
+      </div>
     </>
   )
 }
