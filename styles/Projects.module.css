@@ -76,7 +76,7 @@
 
 .subtitle {
     font-weight: 300;
-    font-size: 26px;
+    font-size: 25px;
     line-height: 46px;
     color: rgb(var(--dark-grey-rgb));
 
@@ -110,9 +110,8 @@
 
 .grid {
     padding: 0 5vw;
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-template-rows: auto;
     grid-auto-rows: auto;
     grid-gap: 50px;
@@ -160,6 +159,7 @@
     font-weight: 500;
     color: white;
     margin-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(var(--grey-rgb), 1);
 }
 
 .cardtext .cardbody {
@@ -168,7 +168,7 @@
 
 .cardtext .cardbody,
 .cardtext .cardlink {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     color: white;
 }
@@ -176,8 +176,8 @@
 .cardtext .cardlink {
     display: inline-block;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
     padding: 10px 20px;
     border-radius: var(--radius);
     background-color: rgb(var(--black-rgb));
@@ -205,6 +205,10 @@
     .subtitle {
         width: 100%;
     }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -230,5 +234,18 @@
     .subtitle {
         font-size: 20px;
         line-height: 30px;
+    }
+
+    .grid {
+        grid-template-columns: minmax(300px, 1fr);
+    }
+
+    .card .cardhead {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .card:hover img {
+        transform: none;
     }
 }

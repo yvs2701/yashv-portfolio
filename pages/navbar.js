@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={styles.navbar + ' ' + poppins.className}>
+      <nav className={styles.navbar + ' ' + poppins.className + ' ' + (closedMenu ? '' : styles.closed)}>
         <div className={styles.navheader}>
           <Link
             className={styles.namebrand + ' ' + poppins.className}
