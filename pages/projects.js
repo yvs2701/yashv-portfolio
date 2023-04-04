@@ -15,6 +15,9 @@ import covihelp from '../public/projects/covihelp.png'
 import reacttodos from '../public/projects/reacttodos.png'
 import weather from '../public/projects/weather.png'
 import github from '../public/projects/github.jpg'
+import fulcrum from '../public/projects/fulcrum_nightwing_11_22.jpg'
+import crimeviz from '../public/projects/crimeviz.jpg'
+import facemask from '../public/projects/face_mask.jpg'
 
 const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'] })
 
@@ -26,28 +29,16 @@ const prjs = [
     description: 'Blogsite and homepage for insights club comprising video feeds and event updates.'
   },
   {
-    photo: covihelp,
-    link: 'https://github.com/yvs2701/CoviHelp',
-    title: 'CoviHelp - browser extension',
-    description: 'Find your preferred vaccine slots nearby. Alerts you when slots become available.'
+    photo: facemask,
+    link: 'https://github.com/yvs2701/The-path-of-Coder/tree/main/Python/face-mask-detection',
+    title: 'Face mask detection',
+    description: 'SVM model to classify if the users are wearing a mask properly or not.'
   },
   {
-    photo: funedu,
-    link: 'https://github.com/yvs2701/fun-edu',
-    title: 'FunEdu - online Ed. repository',
-    description: 'Learning materials curated for every age group.'
-  },
-  {
-    photo: reacttodos,
-    link: 'https://yvs2701.github.io/React-Todos-List/',
-    title: 'Todos list - react app',
-    description: 'Manage your daily goals and todos using this browser synced web app.'
-  },
-  {
-    photo: covinet,
-    link: 'https://github.com/yvs2701/Covinet',
-    title: 'Covinet - corona tracker',
-    description: 'Social awareness for Covid pandemic + tracker for virus spread.'
+    photo: crimeviz,
+    link: 'https://github.com/yvs2701/The-path-of-Coder/tree/main/Data%20Sci/Crime%20Viz%20India',
+    title: 'CrimeViz - India',
+    description: 'Maps and Time series charts depicting crimes occurring in India from 2000 to 2013.'
   },
   {
     photo: aanchal,
@@ -56,10 +47,41 @@ const prjs = [
     description: 'The app alerts nearby people, and saved contacts during the time of an emergency.'
   },
   {
+    photo: fulcrum,
+    link: 'https://github.com/yvs2701/Fulcrum-voice-assistant',
+    title: 'Fulcrum - voice ai',
+    description: 'Simple voice ai to greet you, search your queries, play songs, find people etc.'
+  },
+
+  {
+    photo: covihelp,
+    link: 'https://github.com/yvs2701/CoviHelp',
+    title: 'CoviHelp - browser extension',
+    description: 'Find your preferred vaccine slots nearby. Alerts you when slots become available.'
+  },
+  {
+    photo: covinet,
+    link: 'https://github.com/yvs2701/Covinet',
+    title: 'Covinet - corona tracker',
+    description: 'Social awareness for Covid pandemic and tracker for virus spread.'
+  },
+  {
     photo: weather,
     link: 'https://yvs2701.github.io/mlh-lhd-submissions/Weather-app/',
     title: 'Simple weather app',
     description: 'Fetches weather data from OpenWeatherMap api.'
+  },
+  {
+    photo: reacttodos,
+    link: 'https://yvs2701.github.io/React-Todos-List/',
+    title: 'Todos list - react app',
+    description: 'Manage your daily goals and todos using this browser synced web app.'
+  },
+  {
+    photo: funedu,
+    link: 'https://github.com/yvs2701/fun-edu',
+    title: 'FunEdu - online Ed. repository',
+    description: 'Learning materials curated for every age group.'
   },
   {
     photo: github,
