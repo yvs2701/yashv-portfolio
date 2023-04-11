@@ -1,10 +1,42 @@
 import styles from '@/styles/Contact.module.css'
 import { Poppins } from 'next/font/google'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['latin'] })
 
 export default function Contact() {
+  const [captchaSrc, setCaptcha] = useState('')
+  const [answer, setAnswer] = useState('')
+  const [submitBtn, setBtn] = useState('Submit')
+
+  useEffect(() => {
+    const getCaptcha = async () => {
+      const endpoint = '/api/captcha'
+
+      try {
+        const response = await fetch(endpoint)
+        const result = await response.json()
+  
+        if (result.success) {
+          setCaptcha(result.captcha)
+          setAnswer(result.answer)
+        } else {
+          setCaptcha('')
+          setAnswer('')
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    }
+    
+    getCaptcha()
+    const timer = setInterval(() => getCaptcha(), 120000)
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,6 +47,8 @@ export default function Contact() {
         name: e.target.name.value,
         email: e.target.mail.value,
         message: e.target.message.value,
+        captcha: e.target.captchaIn,
+        answer: answer
       }
 
       console.log(data);
@@ -42,21 +76,18 @@ export default function Contact() {
       }
 
     } catch (err) {
-      
+
       console.error(err);
       setBtn("Failed :(")
 
     } finally {
-      
+
       setTimeout(() => {
         setBtn("Submit")
       }, 5000);
 
     }
   }
-
-
-  const [submitBtn, setBtn] = useState('Submit');
 
   const mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -90,8 +121,17 @@ export default function Contact() {
             <div className={styles.textwrapper}>
               <label className={styles.label + ' ' + poppins.className} htmlFor="Message">Message</label>
               <textarea className={styles.textarea + ' ' + poppins.className} name="message" placeholder='Enter your message' id="Message"></textarea>
+              {/* CAPTCHA */}
+              {captchaSrc &&
+                <div className={styles.captchaWrapper}>
+                  <Image unoptimized src={captchaSrc} alt='Captcha Image' width={150} height={50} />
+                  <input className={styles.captchaText + ' ' + styles.input + ' ' + poppins.className} name="captchaIn" placeholder='Solve this Maths puzzle' />
+                </div>
+              }
               <input className={styles.submit + ' ' + poppins.className} type="submit" value={submitBtn} data-wait="Sending..." data-success="Sent!" data-failure="Failed :(" />
             </div>
+
+
           </form>
         </div>
       </section>
