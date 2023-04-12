@@ -1,4 +1,4 @@
-## Hey everyone <img src="./wave.gif" height="24px"></img> nice to see you !!
+## Hey everyone <img src="https://raw.githubusercontent.com/yvs2701/yvs2701/main/assets/wave.gif" height="24px"></img> nice to see you !!
 - 🌱 #SaveSoil
 - 🙋🏽 I am **Yashvardhan Singh**, you can call me **Yash**.
 - 🧑🏽‍💻 I am a computer science student at Vellore Institute of Technology, Bhopal, pursuing majors in AI and ML.
