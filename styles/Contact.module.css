@@ -112,7 +112,7 @@
 
     border: 1px solid rgb(var(--black-rgb));
     border-radius: var(--radius);
-    
+
     color: #fff;
     font-weight: 500;
     background-color: rgb(var(--black-rgb));
@@ -122,6 +122,17 @@
 .submit:hover {
     cursor: pointer;
     transform: scale(1.1, 1.1);
+}
+
+.submit:disabled {
+    color: rgb(var(--white-rgb));
+    background-color: rgb(var(--grey-rgb));
+    border: 1px solid rgb(var(--grey-rgb));
+}
+
+.submit:disabled:hover {
+    cursor: not-allowed;
+    transform: none;
 }
 
 .captchaWrapper {
@@ -137,8 +148,61 @@
 .captchaWrapper img {
     margin-bottom: 5px;
 }
-.captchaWrapper .input {
+
+.captchaWrapper .inputGrp {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inputGrp .input {
     width: 300px;
+}
+
+.inputGrp .reloadCaptcha {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    background: none;
+    border: none;
+}
+.inputGrp .reloadCaptcha:disabled {
+    cursor: not-allowed;
+    background: none;
+    border: none;
+}
+.inputGrp .reloadCaptcha:disabled svg {
+    fill: rgb(var(--grey-rgb));
+    stroke: rgb(var(--grey-rgb));
+}
+
+.inputGrp .reloadCaptcha svg {
+    fill: rgb(var(--black-rgb));
+    stroke: rgb(var(--black-rgb));
+}
+
+.inputGrp .reloadCaptcha:hover {
+    cursor: pointer;
+    animation: refreshing 1s linear; /* defining this here will replay the animation on each hover otherwise animation would never play after playing once */
+    animation-iteration-count: 1;
+}
+
+.inputGrp .reloadCaptcha.loading {
+    animation: refreshing 1s linear; /* making another class like this wont interfere with hover animation */
+    animation-iteration-count: infinite;
+}
+
+@keyframes refreshing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -192,7 +256,7 @@
         justify-content: center;
         width: 100%;
     }
-    
+
     .details {
         width: 100%;
         margin-top: 20px;

@@ -12,8 +12,8 @@ const getRandomOperator = () => {
   return type === 0 ? '+' : '-' // 0 = '+' and 1 = '-'
 }
 
-const drawLines = (ctx, w, h) => {
-  for (var i = 0; i < 20; i++) {
+const drawLines = (ctx, w, h, numOfLines = 25) => {
+  for (var i = 0; i < numOfLines; i++) {
     ctx.beginPath()
     ctx.moveTo(getRandomInt(0, w), getRandomInt(0, h))
     ctx.lineTo(getRandomInt(0, w), getRandomInt(0, h))
@@ -25,10 +25,10 @@ const drawLines = (ctx, w, h) => {
 const generateCaptchaImg = (text) => {
   const canvas = createCanvas(200, 200)
   const ctx = canvas.getContext('2d')
-  
+
   /* CAPTCHA SIZE */
-  canvas.width = 150
-  canvas.height = 50
+  canvas.width = 225
+  canvas.height = canvas.width / 3
 
   /* CAPTCHA BACKGROUND */
   const imgData = ctx.createImageData(canvas.width, canvas.height)
@@ -38,8 +38,10 @@ const generateCaptchaImg = (text) => {
   ctx.putImageData(imgData, 0, 0)
 
   /* CAPTCHA TEXT */
-  ctx.fillStyle = "rgb(" + getRandomInt(60, 140) + "," + getRandomInt(60, 140) + "," + getRandomInt(60, 140) + ")"
-  ctx.font = "30px Arial"
+  const lowRGB = 110
+  const highRGB = 150
+  ctx.fillStyle = "rgb(" + getRandomInt(lowRGB, highRGB) + "," + getRandomInt(lowRGB, highRGB) + "," + getRandomInt(lowRGB, highRGB) + ")"
+  ctx.font = "45px Arial"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
   ctx.fillText(text, canvas.width / 2, canvas.height / 2);
@@ -67,7 +69,7 @@ export default function handler(req, res) {
     try {
 
       const eqn = getRandomInt(0, 100) + ' ' + getRandomOperator() + ' ' + getRandomInt(0, 100)
-      const token = jwt.sign({token: String(eval(eqn))}, process.env.JWT_SECRET, { expiresIn: '2m' })
+      const token = jwt.sign({ token: String(eval(eqn)) }, process.env.JWT_SECRET, { expiresIn: '2m' })
 
       return res.status(200).json({ success: true, captcha: generateCaptchaImg(eqn), answer: token })
 
