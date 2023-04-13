@@ -1,18 +1,9 @@
 import jwt from "jsonwebtoken"
 
 export default function handler(req, res) {
-    const body = req.body
-    try {
-        const date = new Date();
-        const stamp = date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-
-        console.log({ request: body, timestamp: stamp }) // logging
-    } catch (err) {
-        return res.status(500).json({ success: false, data: "Some error occured!" })
-    }
 
     if (req.method === "POST") {
-        const { name, email, message, captcha, answer } = body;
+        const { name, email, message, captcha, answer } = req.body;
         jwt.verify(answer, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.error(err);

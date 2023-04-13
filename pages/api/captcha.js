@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-const { createCanvas } = require('canvas')
+import { createCanvas } from 'canvas'
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min)
@@ -54,15 +54,6 @@ const generateCaptchaImg = (text) => {
 
 
 export default function handler(req, res) {
-  const body = req.body
-  try {
-    const date = new Date();
-    const stamp = date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-
-    console.log({ request: body, timestamp: stamp }) // logging
-  } catch (err) {
-    return res.status(500).json({ success: false, data: "Some error occured!" })
-  }
 
   if (req.method === "GET") {
 
