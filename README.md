@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/927c98ce-e5a0-40d1-af66-e4d21054774c/deploy-status)](https://app.netlify.com/sites/yashvardhan/deploys)
 ## Hey everyone <img src="https://raw.githubusercontent.com/yvs2701/yvs2701/main/assets/wave.gif" height="24px"></img> nice to see you !!
 - 🌱 #SaveSoil
 - 🙋🏽 I am **Yashvardhan Singh**, you can call me **Yash**.
