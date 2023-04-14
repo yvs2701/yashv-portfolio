@@ -109,8 +109,6 @@ export default function Contact() {
     }
   }
 
-  const mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
   return (
     <>
       <section className={styles.container} id="contact">
@@ -132,8 +130,8 @@ export default function Contact() {
                   id="Email"
                   type="email" name="mail"
                   placeholder="Enter your email"
-                  pattern={mailRegex}
-                  title="Invalid email address!"
+                  pattern='/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/'
+                  title="address@email.com"
                   required
                 />
               </div>
@@ -141,6 +139,7 @@ export default function Contact() {
             <div className={styles.textwrapper}>
               <label className={styles.label + ' ' + poppins.className} htmlFor="Message">Message</label>
               <textarea className={styles.textarea + ' ' + poppins.className} name="message" placeholder='Enter your message' id="Message"></textarea>
+
               {/* CAPTCHA */}
               {captchaSrc &&
                 <div className={styles.captchaWrapper}>

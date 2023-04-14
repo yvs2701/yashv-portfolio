@@ -55,6 +55,15 @@ const generateCaptchaImg = (text) => {
 
 export default function handler(req, res) {
 
+  try {
+    const date = new Date();
+    const stamp = date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    const { body, url, method, geo, ip, headers } = req
+    console.log({ url, ip, geo, method, headers, body, timestamp: stamp }) // logging
+  } catch (err) {
+    console.error('Some error occured in Middleware:', err)
+  }
+
   if (req.method === "GET") {
 
     try {
