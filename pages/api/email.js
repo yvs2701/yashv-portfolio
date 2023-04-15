@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken"
+import nodemailer from "nodemailer"
 
 export default function handler(req, res) {
   try {
@@ -11,8 +12,14 @@ export default function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const { name, email, message, captcha, answer } = req.body;
-    jwt.verify(answer, process.env.JWT_SECRET, (err, decoded) => {
+    const { name, email, message, petname, response, captcha, answer } = req.body;
+
+    if (response || petname) { // honeypots filled by spam bots
+      console.warn('BOT DETECTED! REASON: HONEYPOTS FILLED.')
+      return res.status(418).json({ success: false, data: "Cannot handle!" })
+    }
+
+    jwt.verify(answer, process.env.JWT_SECRET, async (err, decoded) => {
       if (err) {
         console.error(err);
         if (err.name === 'TokenExpiredError') {
@@ -22,11 +29,95 @@ export default function handler(req, res) {
         }
       }
       else if (captcha === decoded.token) {
-        // do processing here
+        const transporter = nodemailer.createTransport({
+          host: process.env.MAIL_SMTP,
+          port: process.env.MAIL_PORT,
+          secure: false,
+          auth: {
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD
+          },
+        })
 
+        const info = await transporter.sendMail({
+          from: `"Yashv\'s Portfolio" <${process.env.MAIL_USER}>`,
+          to: `${process.env.MAIL_USER}`,
+          replyTo: `${process.env.MAIL_USER}`,
+          subject: "New message on your portoflio!",
+          text: `${name} <${email}> said: ${message}`,
+          html: `
+            <tbody>
+            <tr>
+              <td class="drow" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;" valign="top" align="center">
+                <div class="layer_2" style="max-width: 596px; display: inline-block; vertical-align: top; width: 100%;">
+                  <table class="edcontent" style="border-collapse: collapse;width:100%" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td class="edtext" style="padding: 10px 20px; text-align: left; color: #5f5f5f; font-size: 16px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;" valign="top">
+                          <p class="style1 text-center" style="text-align: center; margin: 0px; padding: 0px; color: #000000; font-size: 32px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">Somebody wrote to you!</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="drow" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;" valign="top" align="center">
+                <div class="layer_2" style="display: inline-block; vertical-align: top; width: 100%; max-width: 600px;">
+                  <table class="edcontent" style="border-collapse: collapse;width:100%" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td class="edtext" style="padding: 10px 20px; text-align: left; color: #5f5f5f; font-size: 16px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;" valign="top">
+                          <p class="style2" style="margin: 0px; padding: 0px; color: #000000; font-size: 22px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong>Name:</strong></p>
+                          <p style="margin: 0px; padding: 0px;">${name}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="drow" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;" valign="top" align="center">
+                <div class="layer_2" style="display: inline-block; vertical-align: top; width: 100%; max-width: 600px;">
+                  <table class="edcontent" style="border-collapse: collapse;width:100%" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td class="edtext" style="padding: 10px 20px; text-align: left; color: #5f5f5f; font-size: 16px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;" valign="top">
+                          <p class="style2" style="margin: 0px; padding: 0px; color: #000000; font-size: 22px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong>Email:</strong></p>
+                          <p style="margin: 0px; padding: 0px;">${email}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="drow" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;" valign="top" align="center">
+                <div class="layer_2" style="display: inline-block; vertical-align: top; width: 100%; max-width: 600px;">
+                  <table class="edcontent" style="border-collapse: collapse;width:100%" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td class="edtext" style="padding: 10px 20px; text-align: left; color: #5f5f5f; font-size: 16px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;" valign="top">
+                          <p class="style2" style="margin: 0px; padding: 0px; color: #000000; font-size: 22px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong>Message:</strong></p>
+                          <pre style="margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">${message}</pre>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>`,
+          disableFileAccess: true,
+        })
+
+        console.log(info)
         return res.status(200).json({ success: true, data: "Thank you for your message, I will get back to you soon!" })
       }
-    });
+    })
   } else {
     return res.status(405).json({ success: false, data: "Wrong HTTP method!" })
   }

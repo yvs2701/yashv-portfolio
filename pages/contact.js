@@ -38,7 +38,7 @@ export default function Contact() {
   useEffect(() => {
     getCaptcha()
 
-    setTimer(setInterval(() => getCaptcha(), 120000))
+    setTimer(setInterval(getCaptcha, 120000))
 
     return () => {
       setTimer(prev => {
@@ -61,7 +61,10 @@ export default function Contact() {
         email: e.target.mail.value,
         message: e.target.message.value,
         captcha: e.target.captchaIn.value,
-        answer: answer
+        answer: answer,
+
+        response: e.target.response.value,
+        petname: e.target.petname.value,
       }
 
       const JSONdata = JSON.stringify(data)
@@ -78,7 +81,7 @@ export default function Contact() {
       setTimer((prev) => {
         clearTimeout(prev)
         getCaptcha()
-        return setInterval(() => getCaptcha(), 120000)
+        return setInterval(getCaptcha, 120000)
       })
 
       const response = await fetch(endpoint, options)
@@ -122,6 +125,9 @@ export default function Contact() {
               <div className={styles.details}>
                 <label className={styles.label + ' ' + poppins.className} htmlFor="Name">Name</label>
                 <input className={styles.input + ' ' + poppins.className} type="text" name="name" placeholder="Enter your name" id="Name" required />
+
+                <input className={styles.input + ' ' + styles.input_honey + ' ' + poppins.className} type="text" name="petname" placeholder='Enter your pet name' id="PetName" />
+
               </div>
               <div className={styles.details}>
                 <label className={styles.label + ' ' + poppins.className} htmlFor="Email">Email</label>
@@ -134,6 +140,9 @@ export default function Contact() {
                   title="address@email.com"
                   required
                 />
+
+                <input className={styles.input + ' ' + styles.input_honey + ' ' + poppins.className} type="text" name="response" placeholder='Enter your answer' id="Answer" />
+
               </div>
             </div>
             <div className={styles.textwrapper}>
@@ -161,7 +170,7 @@ export default function Contact() {
                         setTimer((prev) => {
                           clearTimeout(prev)
                           getCaptcha()
-                          return setInterval(() => getCaptcha(), 120000)
+                          return setInterval(getCaptcha, 120000)
                         })
                       }}>
                       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.006 330.006">

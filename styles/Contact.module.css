@@ -84,6 +84,11 @@
     background-color: rgb(var(--off-white-rgb));
 }
 
+.input.input_honey {
+    margin-top: 10px;
+    display: none;
+}
+
 .textarea:focus,
 .input:focus {
     border: 1px solid rgb(var(--black-rgb));
