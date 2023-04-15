@@ -36,8 +36,8 @@ export default function Contact() {
   }
 
   useEffect(() => {
-    getCaptcha()
 
+    getCaptcha()
     setTimer(setInterval(getCaptcha, 120000))
 
     return () => {
@@ -90,6 +90,7 @@ export default function Contact() {
       console.log(result);
 
       if (result.success) {
+        e.target.name.value = e.target.mail.value = e.target.message.value = e.target.captchaIn.value = ''
         setBtn("Sent!")
       } else {
         setBtn("Failed :(")
@@ -136,7 +137,6 @@ export default function Contact() {
                   id="Email"
                   type="email" name="mail"
                   placeholder="Enter your email"
-                  pattern='/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/'
                   title="address@email.com"
                   required
                 />

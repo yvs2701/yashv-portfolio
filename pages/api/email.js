@@ -19,33 +19,36 @@ export default function handler(req, res) {
       return res.status(418).json({ success: false, data: "Cannot handle!" })
     }
 
-    jwt.verify(answer, process.env.JWT_SECRET, async (err, decoded) => {
-      if (err) {
-        console.error(err);
-        if (err.name === 'TokenExpiredError') {
-          return res.status(200).json({ success: false, data: "Captcha expired!" })
-        } else {
-          return res.status(200).json({ success: false, data: "Captcha verification failed!" })
+    return new Promise((resolve, reject) => {
+      jwt.verify(answer, process.env.JWT_SECRET, async (err, decoded) => {
+        if (err) {
+          console.error(err);
+          if (err.name === 'TokenExpiredError') {
+            res.status(200).json({ success: false, data: "Captcha expired!" })
+          } else {
+            res.status(200).json({ success: false, data: "Captcha verification failed!" })
+          }
+          resolve()
         }
-      }
-      else if (captcha === decoded.token) {
-        const transporter = nodemailer.createTransport({
-          host: process.env.MAIL_SMTP,
-          port: process.env.MAIL_PORT,
-          secure: false,
-          auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASSWORD
-          },
-        })
+        else if (captcha === decoded.token) {
+          const transporter = nodemailer.createTransport({
+            host: process.env.MAIL_SMTP,
+            port: process.env.MAIL_PORT,
+            secure: false,
+            auth: {
+              user: process.env.MAIL_USER,
+              pass: process.env.MAIL_PASSWORD
+            },
+          })
 
-        const info = await transporter.sendMail({
-          from: `"Yashv\'s Portfolio" <${process.env.MAIL_USER}>`,
-          to: `${process.env.MAIL_USER}`,
-          replyTo: `${process.env.MAIL_USER}`,
-          subject: "New message on your portoflio!",
-          text: `${name} <${email}> said: ${message}`,
-          html: `
+          const info = await transporter.sendMail({
+            from: `"${process.env.MAIL_USERNAME}" <${process.env.MAIL_USER}>`,
+            to: email,
+            bcc: 'yashvardhan.ys86@gmail.com',
+            replyTo: process.env.MAIL_USER,
+            subject: `${name}'s message received!`,
+            text: `${name} <${email}> said: ${message}`,
+            html: `
             <tbody>
             <tr>
               <td class="drow" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;" valign="top" align="center">
@@ -54,7 +57,7 @@ export default function handler(req, res) {
                     <tbody>
                       <tr>
                         <td class="edtext" style="padding: 10px 20px; text-align: left; color: #5f5f5f; font-size: 16px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;" valign="top">
-                          <p class="style1 text-center" style="text-align: center; margin: 0px; padding: 0px; color: #000000; font-size: 32px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">Somebody wrote to you!</p>
+                          <p class="style1 text-center" style="text-align: center; margin: 0px; padding: 0px; color: #000000; font-size: 32px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">Message received!</p>
                         </td>
                       </tr>
                     </tbody>
@@ -111,12 +114,14 @@ export default function handler(req, res) {
               </td>
             </tr>
           </tbody>`,
-          disableFileAccess: true,
-        })
+            disableFileAccess: true,
+          })
 
-        console.log(info)
-        return res.status(200).json({ success: true, data: "Thank you for your message, I will get back to you soon!" })
-      }
+          console.log(info)
+          res.status(200).json({ success: true, data: "Thank you for your message, I will get back to you soon!" })
+          resolve()
+        }
+      })
     })
   } else {
     return res.status(405).json({ success: false, data: "Wrong HTTP method!" })
