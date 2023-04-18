@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { createCanvas } from 'canvas'
+import { createCanvas } from '@napi-rs/canvas'
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min)
@@ -23,11 +23,11 @@ const drawLines = (ctx, w, h, numOfLines = 25) => {
 }
 
 const generateCaptchaImg = (text) => {
-  const canvas = createCanvas(200, 200)
+  const canvas = createCanvas(300, 100)
   const ctx = canvas.getContext('2d')
 
   /* CAPTCHA SIZE */
-  canvas.width = 225
+  canvas.width = 300
   canvas.height = canvas.width / 3
 
   /* CAPTCHA BACKGROUND */
