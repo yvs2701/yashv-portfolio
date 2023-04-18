@@ -1,4 +1,5 @@
 import verify from "jsonwebtoken/verify"
+import nodemailer from "nodemailer"
 import { template } from "./templates/template"
 export default function handler(req, res) {
   try {
@@ -32,32 +33,24 @@ export default function handler(req, res) {
         else if (captcha === decoded.token && typeof name === 'string' && typeof email === 'string' && typeof message === 'string') {
           try {
 
-            const data = {
-              APIKEY: process.env.MAIL_KEY,
-
-              smtp: process.env.MAIL_SMTP,
+            const transporter = nodemailer.createTransport({
+              host: process.env.MAIL_SMTP,
               port: process.env.MAIL_PORT,
-              password: process.env.MAIL_PASSWORD,
+              secure: false,
+              auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASSWORD
+              },
+            })
 
-              from: process.env.MAIL_USER,
-              fromName: process.env.MAIL_USERNAME,
+            const info = await transporter.sendMail({
+              from: `"${process.env.MAIL_USERNAME}" <${process.env.MAIL_USER}>`,
               to: process.env.MAIL_TO,
-
               subject: `${name}'s message received!`,
               text: `${name} <${email}> said: ${message}`,
               html: template(name, email, message),
               disableFileAccess: true,
-            }
-
-            const response = await fetch(process.env.MAIL_API, {
-              method: 'POST',
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data)
             })
-
-            const info = await response.json()
 
             console.log('SMTP response:', info)
             res.status(200).json({ success: true, data: "Thank you for your message, I will get back to you soon!" })
