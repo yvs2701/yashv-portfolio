@@ -6,7 +6,7 @@ import namelogo from '../public/YVicon.png'
 import menulogo from '../public/icons/menuIcon.png'
 import { Poppins } from 'next/font/google'
 
-const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'] })
+const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'], display: 'swap' })
 
 export default function Navbar() {
 

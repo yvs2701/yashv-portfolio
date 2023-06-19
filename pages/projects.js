@@ -19,7 +19,7 @@ import fulcrum from '../public/projects/fulcrum_nightwing_11_22.jpg'
 import crimeviz from '../public/projects/crimeviz.jpg'
 import facemask from '../public/projects/face_mask.jpg'
 
-const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'] })
+const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
 const prjs = [
   {

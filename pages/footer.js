@@ -4,9 +4,22 @@ import styles from '@/styles/Footer.module.css'
 import namelogo from '../public/YVicon.png'
 import { Poppins } from 'next/font/google'
 
-const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'] })
+const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'], display: 'swap' })
 
 export default function Footer() {
+  const links = [
+    {
+      name: 'LinkedIn', url: 'https://www.linkedin.com/in/yashv27/'
+    }, {
+      name: 'LeetCode', url: 'https://leetcode.com/yvs2701/'
+    }, {
+      name: 'Github', url: 'https://github.com/yvs2701'
+    }, {
+      name: 'About', url: '/'
+    }, {
+      name: 'Projects', url: '/projects'
+    }
+  ];
   return (
     <>
       <section className={styles.container}>
@@ -26,10 +39,9 @@ export default function Footer() {
           </div>
 
           <div className={styles.links}>
-            <Link href="https://www.linkedin.com/in/yashv27/" className={styles.link + ' ' + poppins.className}>LinkedIn</Link>
-            <Link href="https://github.com/yvs2701" className={styles.link + ' ' + poppins.className}>Github</Link>
-            <Link href="/" className={styles.link + ' ' + poppins.className}>About</Link>
-            <Link href="/projects" className={styles.link + ' ' + poppins.className}>Projects</Link>
+            {
+              links.map((link, idx) => <Link key={idx} href={link.url} className={styles.link + ' ' + poppins.className}>{link.name}</Link>)
+            }
           </div>
         </div>
         <div className={styles.copyright + ' ' + poppins.className}>

@@ -63,7 +63,7 @@
 
 @media only screen and (max-width: 768px) {
     .container {
-        padding: 0 8vw;
+        padding: 0 5vw;
     }
 
     .footer {
@@ -91,5 +91,27 @@
 
     .link {
         margin: 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .footer {
+        margin-bottom: 20px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .links {
+        justify-content: space-around;
+    }
+
+    .link {
+        font-size: 14px;
+    }
+
+    .copyright {
+        font-size: 12px;
     }
 }

@@ -9,8 +9,8 @@ import Footer from './footer'
 import userimg from '../public/professional.png'
 import Floating from './floatinglinks'
 
-const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'] })
-const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'] })
+const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'],  display: 'swap' })
+const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'],  display: 'swap' })
 const skills = ['Javascript', 'React.js', 'Express.js', 'MongoDB', 'HTML/CSS', 'SQL', 'PostgreSQL', 'Core Java', 'Python', 'Git', 'Next.js', 'Tailwind css']
 
 export default function Home() {

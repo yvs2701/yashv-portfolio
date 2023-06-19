@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['latin'] })
+const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
 export default function Contact() {
   const [captchaSrc, setCaptcha] = useState('')
