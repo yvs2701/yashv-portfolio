@@ -6,7 +6,7 @@ import { Crimson_Pro } from 'next/font/google'
 import Navbar from './navbar'
 import Contact from './contact'
 import Footer from './footer'
-import userimg from '../public/professional.png'
+import userimg from '../public/Yashv-portrait-min.jpeg'
 import Floating from './floatinglinks'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'],  display: 'swap' })
