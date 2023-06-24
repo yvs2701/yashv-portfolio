@@ -42,6 +42,7 @@ export default function Floating() {
             width={36}
             height={36}
             alt="github profile"
+            placeholder="blur"
           />
         </Link>
         <Link className={styles.floatinglink} href='https://www.linkedin.com/in/yashv27/'>
@@ -50,6 +51,7 @@ export default function Floating() {
             width={48}
             height={48}
             alt="linkedin profile"
+            placeholder="blur"
           />
         </Link>
       </span>

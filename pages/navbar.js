@@ -25,6 +25,7 @@ export default function Navbar() {
               alt="Name logo of Yashvardhan Singh"
               height={30}
               width={58}
+              placeholder="blur"
             />
             <span className={styles.name + ' ' + poppins.className}>Yashvardhan Singh</span>
           </Link>

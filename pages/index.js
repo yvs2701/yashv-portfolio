@@ -34,6 +34,7 @@ export default function Home() {
             src={userimg}
             width={400}
             alt="Yashvardan Singh"
+            placeholder="blur"
           />
 
           <div className={styles.description}>

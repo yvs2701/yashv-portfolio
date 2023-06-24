@@ -34,6 +34,7 @@ export default function Footer() {
                 alt="Name logo of Yashvardhan Singh"
                 height={30}
                 width={58}
+                placeholder="blur"
               />
             </Link>
           </div>
