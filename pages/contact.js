@@ -52,7 +52,7 @@ export default function Contact() {
     e.preventDefault()
     setDisabled(prev => {
       setBtn("Sending...")
-      return !prev
+      return true // disable the button
     })
 
     try {
@@ -108,7 +108,7 @@ export default function Contact() {
           setBtn("Submit")
         }, 5000);
 
-        return !prev
+        return true // disable the button
       })
     }
   }
