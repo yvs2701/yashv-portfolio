@@ -21,7 +21,7 @@
     width: 100vw;
 }
 .navbar.closed {
-    backdrop-filter: saturate(150%) blur(3px);
+    backdrop-filter: saturate(120%) blur(1px);
 }
 
 .burger {

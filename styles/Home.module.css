@@ -77,8 +77,18 @@
 }
 
 .career>.history {
+    flex: 1 0 50%;
     padding: 20px 5px;
     text-align: justify;
+}
+
+.career>.skills {
+    flex: 1 0 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: 100px;
 }
 
 .career>.skills li {
@@ -94,14 +104,6 @@
     border: 1px solid rgb(var(--black-rgb));
 }
 
-.career>.skills {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 10px;
-    margin-left: 100px;
-}
-
 @media only screen and (max-width: 1300px) {
     .welcome {
         font-size: 60px;
@@ -109,7 +111,6 @@
 }
 
 @media only screen and (max-width: 1100px) {
-
     .main,
     .trackrecord {
         width: 80vw;
@@ -138,7 +139,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-
     .main,
     .trackrecord {
         width: 100%;
@@ -193,13 +193,19 @@
         padding: 0;
         width: 90%;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .container {
         margin-top: 120px;
+    }
+
+    .career>.skills li {
+        font-size: 14px;
+        padding: 8px 13px;
+        margin: 10px 8px;
     }
 
     .career>.skills {
