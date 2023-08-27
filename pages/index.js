@@ -3,11 +3,7 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { Poppins } from 'next/font/google'
 import { Crimson_Pro } from 'next/font/google'
-import Navbar from './navbar'
-import Contact from './contact'
-import Footer from './footer'
 import userimg from '../public/Yashv-portrait-min.jpeg'
-import Floating from './floatinglinks'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'], display: 'swap' })
@@ -25,8 +21,6 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-
-      <Navbar />
 
       <main className={styles.container}>
         <section className={styles.main}>
@@ -68,10 +62,6 @@ export default function Home() {
 
         </div>
       </section>
-
-      <Contact />
-      <Floating />
-      <Footer />
     </>
   )
 }

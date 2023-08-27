@@ -3,10 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Poppins } from 'next/font/google'
 import styles from '@/styles/Projects.module.css'
-import Navbar from './navbar'
-import Contact from './contact'
-import Footer from './footer'
-import Floating from './floatinglinks'
 import insights from '../public/projects/insights.jpg'
 import aanchal from '../public/projects/aanchal.png'
 import funedu from '../public/projects/funedu.jpg'
@@ -124,8 +120,6 @@ export default function Projects() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <Navbar />
-
       <main className={styles.container}>
         <section className={styles.hero}>
           <h1 className={styles.slogan + ' ' + poppins.className}>
@@ -155,10 +149,6 @@ export default function Projects() {
         </section>
 
       </main>
-
-      <Contact />
-      <Floating />
-      <Footer />
     </>
   )
 }
