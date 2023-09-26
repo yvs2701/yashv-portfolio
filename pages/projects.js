@@ -14,21 +14,22 @@ import github from '../public/projects/github.jpg'
 import fulcrum from '../public/projects/fulcrum_nightwing_11_22.jpg'
 import crimeviz from '../public/projects/crimeviz.jpg'
 import facemask from '../public/projects/face_mask.jpg'
+import one_mile from '../public/projects/1-mile.png'
 
 const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
 const prjs = [
   {
+    photo: one_mile,
+    link: 'https://github.com/yvs2701/1-mile',
+    title: '1-mile - Video chat',
+    description: 'Gamifies video calls. Makes you walk and make real connections. Gain “proximity” as you walk towards each other.'
+  },
+  {
     photo: insights,
     link: 'https://github.com/yvs2701/InsightsClubWebsite',
     title: 'Insights club - home page',
     description: 'Blogsite and homepage for insights club comprising video feeds and event updates.'
-  },
-  {
-    photo: facemask,
-    link: 'https://github.com/yvs2701/The-path-of-Coder/tree/main/Python/face-mask-detection',
-    title: 'Face mask detection',
-    description: 'SVM model to classify if the users are wearing a mask properly or not.'
   },
   {
     photo: crimeviz,
@@ -41,6 +42,12 @@ const prjs = [
     link: 'https://github.com/yvs2701/Anchaal-app',
     title: 'Aanchal app - for women',
     description: 'The app alerts nearby people, and saved contacts during the time of an emergency.'
+  },
+  {
+    photo: facemask,
+    link: 'https://github.com/yvs2701/The-path-of-Coder/tree/main/Python/face-mask-detection',
+    title: 'Face mask detection',
+    description: 'SVM model to classify if the users are wearing a mask properly or not.'
   },
   {
     photo: fulcrum,
