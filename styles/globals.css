@@ -3,7 +3,7 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  --foreground-rgb: 0, 0, 0;
+  /* --foreground-rgb: 0, 0, 0; */
   --black-rgb: 26, 27, 31;
   --white-rgb: 238, 239, 241;
   --off-white-rgb: 246, 247, 248;
@@ -12,6 +12,18 @@
   --dark-grey-rgb: 98, 100, 109;
   --radius: 8px;
   --radius-large: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255; */
+    --black-rgb: 229, 228, 224;
+    --white-rgb: 26, 27, 31;
+    --off-white-rgb: 9, 8, 7;
+    --grey-rgb: 143, 146, 158;
+    --faint-grey-rgb: 98, 100, 109;
+    --dark-grey-rgb: 206, 209, 223;
+  }
 }
 
 * {
@@ -31,7 +43,7 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--black-rgb));
   background: rgb(var(--white-rgb));
 }
 

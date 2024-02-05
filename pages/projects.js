@@ -15,10 +15,17 @@ import fulcrum from '../public/projects/fulcrum_nightwing_11_22.jpg'
 import crimeviz from '../public/projects/crimeviz.jpg'
 import facemask from '../public/projects/face_mask.jpg'
 import one_mile from '../public/projects/1-mile.png'
+import colorschemes from '../public/projects/color_schemes.png'
 
 const poppins = Poppins({ weight: ['300', '400', '500'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
 const prjs = [
+  {
+    photo: colorschemes,
+    link: 'https://github.com/yvs2701/ColorSchemes',
+    title: 'ColorSchemes',
+    description: 'SaaS app to extract colors from images and generate aesthetic themes.'
+  },
   {
     photo: one_mile,
     link: 'https://github.com/yvs2701/1-mile',

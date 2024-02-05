@@ -19,6 +19,10 @@ export default function handler(req, res) {
       return res.status(418).json({ success: false, data: "Cannot handle!" })
     }
 
+    if (name === '' || email === '' || message === '') {
+      return res.status(400).json({ success: false, data: "Name, Email or Message cannot be empty!" })
+    }
+
     return new Promise((resolve, reject) => {
       verify(answer, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {

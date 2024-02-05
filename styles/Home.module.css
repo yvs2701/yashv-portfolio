@@ -29,6 +29,11 @@
     object-fit: cover;
     object-position: center;
 }
+@media (prefers-color-scheme: dark) {
+    .main>img {
+        box-shadow: 0 0 0.5px 4px rgb(var(--white-rgb)), -3px 0 0.5px 3px rgb(var(--black-rgb));
+    }
+}
 
 .main>.description {
     margin-left: 50px;

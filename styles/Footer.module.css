@@ -20,9 +20,13 @@
 .logo>img {
     transition: transform 0.2s ease-out;
 }
-
 .logo>img:hover {
     transform: skewX(-10deg);
+}
+@media (prefers-color-scheme: dark) {
+    .logo>img {
+        filter: invert(1);
+    }
 }
 
 .namebrand,

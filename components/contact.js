@@ -2,7 +2,6 @@ import styles from '@/styles/Contact.module.css'
 import { Poppins } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import checkSuccess from '/public/icons/check-success.png'
-import Image from 'next/image'
 
 const poppins = Poppins({ weight: ['400', '500'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
@@ -59,33 +58,33 @@ export default function Contact() {
         email: e.target.mail.value.trim(),
         message: e.target.message.value.trim(),
         captcha: e.target.captchaIn.value.trim(),
-        answer: answer,
 
+        answer: answer,
         response: e.target.response.value,
         petname: e.target.petname.value,
       }
 
-      const JSONdata = JSON.stringify(data)
-      const endpoint = '/api/email'
+      if (data.name !== '' && data.email !== '' && data.message !== '' && data.captcha !== '') {
+        const JSONdata = JSON.stringify(data)
+        const endpoint = '/api/email'
 
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSONdata,
-      }
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSONdata,
+        }
 
-      const response = await fetch(endpoint, options)
-      const result = await response.json()
+        const response = await fetch(endpoint, options)
+        const result = await response.json()
 
-      console.log(result);
-
-      if (result.success) {
-        e.target.name.value = e.target.mail.value = e.target.message.value = e.target.captchaIn.value = ''
-        setSentMessage(true)
-      } else {
-        setSentMessage(false)
+        if (result.success) {
+          e.target.name.value = e.target.mail.value = e.target.message.value = e.target.captchaIn.value = ''
+          setSentMessage(true)
+        } else {
+          setSentMessage(false)
+        }
       }
 
     } catch (err) {
@@ -148,7 +147,7 @@ export default function Contact() {
                 {captchaSrc != null &&
                   <div className={styles.captchaWrapper}>
 
-                    <Image unoptimized src={captchaSrc} alt='Captcha Image' width={150} height={50} />
+                    <img src={captchaSrc} alt='Captcha Image' style={{ width: "150px", height: "50px" }} />
 
                     <div className={styles.inputGrp}>
                       <input className={styles.input + ' ' + poppins.className} name="captchaIn"
@@ -192,7 +191,7 @@ export default function Contact() {
         ) : (
           <div className={styles.submitScreen}>
             <div className={styles.successCheck}>
-              <Image unoptimized src={checkSuccess} alt='Email sent' width={75} height={75} />
+              <img src={checkSuccess} alt='Email sent' style={{ width: "75px", height: "75px" }} />
             </div>
             <h2 className={styles.submitReply + ' ' + poppins.className}>
               Thank&nbsp;you for your message, I&nbsp;will get&nbsp;back to you soon!

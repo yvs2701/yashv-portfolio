@@ -32,6 +32,11 @@
 .burger:hover {
     cursor: pointer;
 }
+@media (prefers-color-scheme: dark) {
+    .burger>img {
+        filter: invert(1);
+    }
+}
 
 .navheader {
     display: flex;
@@ -46,6 +51,15 @@
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease-out;
+}
+@media (prefers-color-scheme: dark) {
+    .navheader>.namebrand {
+        filter: invert(1);
+    }
+    .navheader>.namebrand>.name {
+        /* to reset invert filter of parent */
+        filter: invert(1);
+    }
 }
 
 .navheader>.namebrand>.name {
@@ -102,7 +116,7 @@
     margin-right: 0;
     padding: 10px 20px;
     border-radius: var(--radius);
-    color: #fff;
+    color: rgb(var(--white-rgb));
     background-color: rgb(var(--black-rgb));
 }
 

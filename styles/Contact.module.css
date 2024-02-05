@@ -152,7 +152,7 @@
 
 .textarea::placeholder,
 .input::placeholder {
-    color: gray;
+    color: rgb(var(--grey-rgb));
 }
 
 .textarea {
@@ -174,7 +174,7 @@
     border: 1px solid rgb(var(--black-rgb));
     border-radius: var(--radius);
 
-    color: #fff;
+    color: rgb(var(--white-rgb));
     font-weight: 500;
     background-color: rgb(var(--black-rgb));
     transition: transform 0.2s ease-out;
@@ -186,7 +186,7 @@
 }
 
 .submit:disabled {
-    color: rgb(var(--white-rgb));
+    color: rgb(var(--dark-grey-rgb));
     background-color: rgb(var(--grey-rgb));
     border: 1px solid rgb(var(--grey-rgb));
 }

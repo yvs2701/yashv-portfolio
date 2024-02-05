@@ -7,7 +7,7 @@ import userimg from '../public/Yashv-portrait-min.jpeg'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'], display: 'swap' })
-const skills = ['Javascript', 'React.js', 'Express.js', 'MongoDB', 'MySQL', 'HTML', 'CSS', 'Core Java', 'Python', 'Next.js', 'Typescript', 'Git', 'Docker']
+const skills = ['Javascript', 'React.js', 'Express.js', 'MongoDB', 'MySQL', 'HTML', 'CSS', 'Core Java', 'Spring', 'Python', 'Next.js', 'Typescript', 'Git', 'Docker']
 
 export default function Home() {
   return (
