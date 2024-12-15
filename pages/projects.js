@@ -28,9 +28,9 @@ const prjs = [
   },
   {
     photo: one_mile,
-    link: 'https://github.com/yvs2701/1-mile',
-    title: '1-mile - Video chat',
-    description: 'Gamifies video calls. Makes you walk and make real connections. Gain “proximity” as you walk towards each other.'
+    link: 'https://github.com/yvs2701/1-mile-reboot',
+    title: '1-mile - Gamified Chat',
+    description: 'Gamifies simple chat messages. Makes you walk and make real connections. Gain “proximity” as you walk towards each other.'
   },
   {
     photo: insights,
@@ -141,7 +141,7 @@ export default function Projects() {
             {/* &#8209; is the non-breaking hyphen ("-") character */}
           </h1>
           <h2 className={styles.subtitle + ' ' + poppins.className}>
-            Student at VIT&nbsp;Bhopal&nbsp;University. Learning about Artificial&nbsp;Intelligence and Machine&nbsp;Learning. Web&nbsp;developer by heart.
+            Vellore&nbsp;Institute of Technology graduate. Learning about Artificial&nbsp;Intelligence and Machine&nbsp;Learning. Web&nbsp;developer by heart.
           </h2>
           <Link href="#work-grid" className={styles.scrollBtn + ' ' + poppins.className} scroll={false}>View Work</Link>
 

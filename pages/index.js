@@ -51,7 +51,7 @@ export default function Home() {
               Always up for a challenge, I&nbsp;have juggled a lot of programming languages and experienced a wide variety of domains ranging from ML to Web and App development. As a sophomore I&nbsp;started working as trainee and intern at Kavya Softech pvt. ltd. under the supervision of a mentor and completed the allotted industry work revolving around React and MERN stack.
               <br />
               <br />
-              Later as a senior in my undergraduates, I&nbsp;was&nbsp;a Salesforce trainee at PricewaterhouseCoopers (PwC) and got to know about the admin functionalities of the tool. In the same year I&nbsp;bagged a placement offer at Accenture as an AEH developer.
+              Later as a senior in my undergraduates, I&nbsp;was&nbsp;a Salesforce trainee at PricewaterhouseCoopers (PwC). After graduation, I&nbsp;joined as a Software Engineer at Accenture Technology Solutions.
             </p>
 
             <ul className={styles.skills}>{skills.map((skill, index) => <li key={index}> {skill} </li>)} </ul>
