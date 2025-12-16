@@ -67,8 +67,8 @@ export default function handler(req, res) {
   if (req.method === "GET") {
 
     try {
-
-      const eqn = getRandomInt(0, 100) + ' ' + getRandomOperator() + ' ' + getRandomInt(0, 100)
+      const firstInt = getRandomInt(15, 100)
+      const eqn = firstInt + ' ' + getRandomOperator() + ' ' + getRandomInt(0, firstInt)
       const token = jwt.sign({ token: String(eval(eqn)) }, process.env.JWT_SECRET, { expiresIn: '2m' })
 
       return res.status(200).json({ success: true, captcha: generateCaptchaImg(eqn), answer: token })
