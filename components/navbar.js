@@ -17,7 +17,6 @@ const poppins = Poppins({
 export default function Navbar() {
   const [closedMenu, setClosedMenu] = useState(true);
   const captchaContext = useContext(CaptchaContext);
-  const captchaError = captchaContext?.captchaError || false;
 
   return (
     <>
@@ -63,7 +62,7 @@ export default function Navbar() {
           <li className={styles.navlink + " " + poppins.className}>
             <Link href="/">About</Link>
           </li>
-          {!captchaError && (
+          {!captchaContext?.captchaError && (
             <li className={styles.navlink + " " + poppins.className}>
               <Link href="#contact" scroll={false}>
                 Contact
