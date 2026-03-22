@@ -40,10 +40,14 @@ export default function handler(req, res) {
             const transporter = nodemailer.createTransport({
               host: process.env.MAIL_SMTP,
               port: process.env.MAIL_PORT,
-              secure: false,
+              secure: true,
               auth: {
+                type: "OAuth2",
                 user: process.env.MAIL_USER,
-                pass: process.env.MAIL_PASSWORD
+                clientId: process.env.MAIL_CLIENT_ID,
+                clientSecret: process.env.MAIL_CLIENT_SECRET,
+                refreshToken: process.env.MAIL_CLIENT_REFRESH_TOKEN,
+                accessToken: process.env.MAIL_CLIENT_ACCESS_TOKEN,
               },
             })
 
