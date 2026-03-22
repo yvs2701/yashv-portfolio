@@ -1,5 +1,13 @@
 import jwt from 'jsonwebtoken'
-import { createCanvas } from '@napi-rs/canvas'
+import { createCanvas, GlobalFonts } from '@napi-rs/canvas'
+import path from 'path'
+
+const FONT_NAME = 'CaptchaFont' // custom font file, in case the production environment is lacking any fonts
+
+GlobalFonts.registerFromPath(
+  path.join(process.cwd(), 'public', 'fonts', 'DejaVuSans-webfont.woff'),
+  FONT_NAME
+)
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min)
@@ -45,7 +53,7 @@ const generateCaptchaImg = (
 
   /* CAPTCHA TEXT */
   ctx.fillStyle = "rgb(" + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + ")"
-  ctx.font = defaultFontSize + "px sans-serif"
+  ctx.font = defaultFontSize + "px " + FONT_NAME
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
   ctx.fillText(text, canvas.width / 2, canvas.height / 2);
