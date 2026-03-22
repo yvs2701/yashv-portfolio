@@ -22,13 +22,19 @@ const drawLines = (ctx, w, h, numOfLines = 25) => {
   }
 }
 
-const generateCaptchaImg = (text, textColorLowvalue = 140, textColorHighvalue = 180) => {
-  const canvas = createCanvas(300, 100)
+const generateCaptchaImg = (
+  text,
+  defaultWidth = 300,
+  defaultHeight = 100,
+  defaultFontSize = 45,
+  textColorLowvalue = 140,
+  textColorHighvalue = 160) => {
+  const canvas = createCanvas(defaultWidth, defaultHeight)
   const ctx = canvas.getContext('2d')
 
   /* CAPTCHA SIZE */
-  canvas.width = 300
-  canvas.height = canvas.width / 3
+  canvas.width = defaultWidth
+  canvas.height = defaultHeight
 
   /* CAPTCHA BACKGROUND */
   const imgData = ctx.createImageData(canvas.width, canvas.height)
@@ -39,7 +45,7 @@ const generateCaptchaImg = (text, textColorLowvalue = 140, textColorHighvalue = 
 
   /* CAPTCHA TEXT */
   ctx.fillStyle = "rgb(" + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + ")"
-  ctx.font = "45px Arial"
+  ctx.font = defaultFontSize + "px sans-serif"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
   ctx.fillText(text, canvas.width / 2, canvas.height / 2);
