@@ -36,6 +36,11 @@
     margin-bottom: 75px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .submitScreen>.successCheck>img {
+        filter: invert(1);
+    }
+}
 .submitScreen>.submitReply {
     color: rgb(var(--black-rgb));
     font-size: 24px;

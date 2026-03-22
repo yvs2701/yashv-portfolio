@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from '@/styles/Contact.module.css'
 import { Poppins } from 'next/font/google'
 import { useEffect, useState, createContext, useContext } from "react";
@@ -321,11 +322,12 @@ export default function Contact() {
       ) : (
         <div className={styles.submitScreen}>
           <div className={styles.successCheck}>
-            <img
-              src={checkSuccess}
-              alt="Email sent"
-              style={{ width: "75px", height: "75px" }}
-            />
+              <Image
+                src={checkSuccess}
+                alt="Email sent"
+                width={75}
+                height={75}
+              />
           </div>
           <h2 className={styles.submitReply + " " + poppins.className}>
             Thank&nbsp;you for your message, I&nbsp;will get&nbsp;back to you
