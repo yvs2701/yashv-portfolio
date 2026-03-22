@@ -22,7 +22,7 @@ const drawLines = (ctx, w, h, numOfLines = 25) => {
   }
 }
 
-const generateCaptchaImg = (text) => {
+const generateCaptchaImg = (text, textColorLowvalue = 140, textColorHighvalue = 180) => {
   const canvas = createCanvas(300, 100)
   const ctx = canvas.getContext('2d')
 
@@ -38,9 +38,7 @@ const generateCaptchaImg = (text) => {
   ctx.putImageData(imgData, 0, 0)
 
   /* CAPTCHA TEXT */
-  const lowRGB = 110
-  const highRGB = 150
-  ctx.fillStyle = "rgb(" + getRandomInt(lowRGB, highRGB) + "," + getRandomInt(lowRGB, highRGB) + "," + getRandomInt(lowRGB, highRGB) + ")"
+  ctx.fillStyle = "rgb(" + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + "," + getRandomInt(textColorLowvalue, textColorHighvalue) + ")"
   ctx.font = "45px Arial"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"

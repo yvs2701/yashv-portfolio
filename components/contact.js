@@ -1,7 +1,7 @@
 import styles from '@/styles/Contact.module.css'
 import { Poppins } from 'next/font/google'
 import { useEffect, useState, createContext, useContext } from "react";
-import checkSuccess from "/public/icons/check-success.png";
+import checkSuccess from "../public/icons/check-success.png";
 
 export const CaptchaContext = createContext();
 
