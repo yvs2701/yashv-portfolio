@@ -3,18 +3,29 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { Poppins } from 'next/font/google'
 import { Crimson_Pro } from 'next/font/google'
-import userimg from '../public/Yashv-portrait-min.jpeg'
+import userimg from '../public/Yashv-checked-shirt.jpeg'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'], display: 'swap' })
-const skills = ['Javascript', 'React.js', 'Express.js', 'MongoDB', 'MySQL', 'HTML', 'CSS', 'Core Java', 'Spring', 'Python', 'Next.js', 'Typescript', 'Git', 'Docker']
+
+function SkillsList({ skills }) {
+  if (!Array.isArray(skills)) return (<></>)
+
+  return (
+    <>
+      <ul className={styles.skills}>
+        {skills.map((skill, index) => <li key={index}> {skill} </li>)}
+      </ul>
+    </>
+  )
+}
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Yashvardhan Singh</title>
-        <meta name="description" content="Portoflio for Yashvardhan Singh" />
+        <meta name="description" content="Yashvardhan Singh's portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -48,14 +59,16 @@ export default function Home() {
 
           <div className={styles.career}>
             <p className={styles.history}>
-              Always up for a challenge, I&nbsp;have juggled a lot of programming languages and experienced a wide variety of domains ranging from ML to Web and App development. As a sophomore I&nbsp;started working as trainee and intern at Kavya Softech pvt. ltd. under the supervision of a mentor and completed the allotted industry work revolving around React and MERN stack.
-              <br />
-              <br />
-              Later as a senior in my undergraduates, I&nbsp;was&nbsp;a Salesforce trainee at PricewaterhouseCoopers (PwC). After graduation, I&nbsp;joined as a Software Engineer at Accenture Technology Solutions.
+              Always up for a challenge, I&nbsp;have juggled a lot of programming languages and experienced a wide variety of domains ranging from ML to Web and App development. As&nbsp;a sophomore I&nbsp;interned at Kavya&nbsp;Softech pvt.&nbsp;ltd. as a React developer and later trained as a Salesforce CRM developer at PricewaterhouseCoopers (PwC).
             </p>
+            <SkillsList skills={['React', 'Express', 'Flask', 'PyTorch', 'Core Java', 'Python', 'C++', 'MySQL', 'MongoDB', 'Typescript', 'Salesforce']} />
 
-            <ul className={styles.skills}>{skills.map((skill, index) => <li key={index}> {skill} </li>)} </ul>
-
+          </div>
+          <div className={styles.career}>
+            <p className={styles.history}>
+              After graduation, I&nbsp;joined Accenture as an Advanced&nbsp;App Engineering Analyst. My first engagement was with Edward&nbsp;Jones on trade related services and compliance review applications used by their financial advisors. My work spanned the full stack &mdash; from batch processing and backend REST&nbsp;services to frontend experiences &mdash; along with end&#8209;to&#8209;end deployments across containerized environments. I also introduced agentic AI innovations for the firm including ServiceNow change management automation and AI&#8209;assisted business reports generation.
+            </p>
+            <SkillsList skills={['Spring', 'Apache Struts', 'Docker', 'Kubernetes', 'Kafka', 'Jenkins', 'React.js', 'IBM DB2', 'AutoSys', 'Spark', 'Jmeter']} />
           </div>
 
         </div>

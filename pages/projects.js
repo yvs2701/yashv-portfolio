@@ -137,11 +137,11 @@ export default function Projects() {
       <main className={styles.container}>
         <section className={styles.hero}>
           <h1 className={styles.slogan + ' ' + poppins.className}>
-            A developer&nbsp;passionate about creating&nbsp;polished end&#8209;to&#8209;end products
+            Full&#8209;stack&nbsp;dev passionate about creating polished end&#8209;to&#8209;end products
             {/* &#8209; is the non-breaking hyphen ("-") character */}
           </h1>
           <h2 className={styles.subtitle + ' ' + poppins.className}>
-            Vellore&nbsp;Institute of Technology graduate. Learning about Artificial&nbsp;Intelligence and Machine&nbsp;Learning. Web&nbsp;developer by heart.
+            Vellore&nbsp;Institute of Technology graduate. Interested in Web, Open Source, Artificial Intelligence and Machine Learning.
           </h2>
           <Link href="#work-grid" className={styles.scrollBtn + ' ' + poppins.className} scroll={false}>View Work</Link>
 

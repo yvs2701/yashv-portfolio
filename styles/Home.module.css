@@ -155,6 +155,10 @@
         align-self: flex-start;
     }
 
+    .trackrecord>.career:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
     .career>.history {
         padding: 0;
         margin-bottom: 15px;
