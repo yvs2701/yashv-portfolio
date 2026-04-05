@@ -327,7 +327,6 @@ export default function Contact() {
                 alt="Email sent"
                 width={75}
                 height={75}
-                placeholder="blur"
                 loading="lazy"
               />
           </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useContext } from "react";
 import styles from "@/styles/Navbar.module.css";
-import namelogo from "../public/YVicon.png";
+import namelogo from "../public/YVicon.svg";
 import menulogo from "../public/icons/menuIcon.png";
 import { Poppins } from "next/font/google";
 import { CaptchaContext } from "./contact";
@@ -34,10 +34,9 @@ export default function Navbar() {
             <Image
               src={namelogo}
               alt="Name logo of Yashvardhan Singh"
-              preload={true}
+              priority={true}
               height={30}
               width={58}
-              placeholder="blur"
             />
             <span className={styles.name + " " + poppins.className}>
               Yashvardhan Singh

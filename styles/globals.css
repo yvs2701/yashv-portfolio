@@ -53,5 +53,14 @@ a {
 }
 
 .brandW {
-  font-size: 1.3em;
+  height: 1cap;
+  width: 2cap;
+  margin-right: -0.2cap;
+  vertical-align: baseline;
+}
+  
+@media (prefers-color-scheme: dark) {
+  .brandW {
+    filter: invert(1);
+  }
 }

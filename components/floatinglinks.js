@@ -42,7 +42,6 @@ export default function Floating() {
             width={36}
             height={36}
             alt="github profile"
-            placeholder="blur"
             loading="lazy"
           />
         </Link>
@@ -52,7 +51,6 @@ export default function Floating() {
             width={48}
             height={48}
             alt="linkedin profile"
-            placeholder="blur"
             loading="lazy"
           />
         </Link>

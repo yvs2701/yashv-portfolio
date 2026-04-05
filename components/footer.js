@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/Footer.module.css'
-import namelogo from '../public/YVicon.png'
+import namelogo from '../public/YVicon.svg'
 import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({ weight: ['500'], style: ['normal', 'italic'], subsets: ['latin'], display: 'swap' })
@@ -34,8 +34,7 @@ export default function Footer() {
                 alt="Name logo of Yashvardhan Singh"
                 height={30}
                 width={58}
-                placeholder="blur"
-                loading="lazy"
+                priority={true}
               />
             </Link>
           </div>

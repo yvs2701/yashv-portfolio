@@ -2,11 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { Poppins } from 'next/font/google'
-import { Crimson_Pro } from 'next/font/google'
 import userimg from '../public/Yashv-checked-shirt.jpeg'
+import namelogo from '../public/YVicon.svg'
 
 const poppins = Poppins({ weight: ['300', '400'], style: ['normal'], subsets: ['latin'], display: 'swap' })
-const crimpro = Crimson_Pro({ weight: ['300'], style: ['normal'], subsets: ['latin'], display: 'swap' })
 
 function SkillsList({ skills }) {
   if (!Array.isArray(skills)) return (<></>)
@@ -44,7 +43,7 @@ export default function Home() {
           />
 
           <div className={styles.description}>
-            <h1 className={styles.welcome + ' ' + poppins.className}> Hello <span className={'brandW ' + crimpro.className}>YV</span>orld!</h1>
+            <h1 className={styles.welcome + ' ' + poppins.className}> Hello <Image className="brandW" src={namelogo} alt="image for the latin letter: 'W'" priority={true} />orld!</h1>
             <p className={styles.aboutme + ' ' + poppins.className}>
               Fuelled by a passion for developing polished products, I&nbsp;have a deep desire to excel and continuously improve in my work.
               Learn more about my journey below.
