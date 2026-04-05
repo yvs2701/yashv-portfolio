@@ -105,7 +105,7 @@ function PrjCard({ photo, title, description, link }) {
   return (
     <>
       <div className={styles.card}>
-        <Image src={photo} alt={`cover image for project ${title}`} fill placeholder="blur" />
+        <Image src={photo} alt={`cover image for project ${title}`} fill placeholder="blur" loading="lazy" />
         <div className={styles.cardcontent}>
 
           <h3 className={styles.cardhead + ' ' + poppins.className}>{title}</h3>

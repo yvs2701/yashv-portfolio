@@ -34,6 +34,7 @@ export default function Navbar() {
             <Image
               src={namelogo}
               alt="Name logo of Yashvardhan Singh"
+              preload={true}
               height={30}
               width={58}
               placeholder="blur"
@@ -49,7 +50,7 @@ export default function Navbar() {
               setClosedMenu((prevState) => !prevState);
             }}
           >
-            <Image src={menulogo} alt="Hamburger menu" height={44} width={44} />
+            <Image src={menulogo} alt="Hamburger menu" height={44} width={44} placeholder="blur" />
           </button>
         </div>
 

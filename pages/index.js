@@ -40,6 +40,7 @@ export default function Home() {
             width={400}
             alt="Yashvardan Singh"
             placeholder="blur"
+            loading="lazy"
           />
 
           <div className={styles.description}>

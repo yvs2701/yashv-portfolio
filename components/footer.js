@@ -35,6 +35,7 @@ export default function Footer() {
                 height={30}
                 width={58}
                 placeholder="blur"
+                loading="lazy"
               />
             </Link>
           </div>
