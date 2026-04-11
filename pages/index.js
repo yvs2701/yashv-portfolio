@@ -68,7 +68,7 @@ export default function Home() {
             <p className={styles.history}>
               After graduation, I&nbsp;joined Accenture as an Advanced&nbsp;App Engineering Analyst. My first engagement was with Edward&nbsp;Jones on trade related services and compliance review applications used by their financial advisors. My work spanned the full stack &mdash; from batch processing and backend REST&nbsp;services to frontend experiences &mdash; along with end&#8209;to&#8209;end deployments across containerized environments. I also introduced agentic AI innovations for the firm including ServiceNow change management automation and AI&#8209;assisted business reports generation.
             </p>
-            <SkillsList skills={['Spring', 'Apache Struts', 'Docker', 'Kubernetes', 'Kafka', 'Jenkins', 'React.js', 'IBM DB2', 'AutoSys', 'Spark', 'Jmeter']} />
+            <SkillsList skills={['Spring', 'Struts', 'Docker', 'Kubernetes', 'Kafka', 'Jenkins', 'React', 'IBM DB2', 'AutoSys', 'Spark', 'Jmeter', 'RHEL']} />
           </div>
 
         </div>
